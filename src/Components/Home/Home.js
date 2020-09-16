@@ -45,7 +45,7 @@ export default class Home extends Component {
       todos: todos.items,
     };
   }
-  /* States Change */
+/* States Change */
 
   createTask(task, date) {
     todos.add({
@@ -69,7 +69,7 @@ export default class Home extends Component {
     this.setState({ todos: this.state.todos });
   }
 
-  /* Main Page */
+/* Main Page */
   render() {
     return (
       <header className="home">

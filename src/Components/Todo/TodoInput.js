@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./Todo.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 export default class TodoInput extends Component {
   state = {
@@ -37,8 +39,10 @@ export default class TodoInput extends Component {
               autoFocus
               required="true"
             />
-
-            <button className="TodoBtn">Add</button>
+            &nbsp;&nbsp;
+            <span className="TodoBtn">
+              <FontAwesomeIcon icon={faPlus} />
+            </span>
           </ul>
         </form>
       </div>

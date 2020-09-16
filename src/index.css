@@ -73,50 +73,14 @@ h1 {
   margin-left: auto;
 }
 
-/* banner */
-
-.max-height {
- 
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-  position: relative;
-  display: grid;
-  place-items: center;
-  margin-top: 67px;
-}
-.banner {
-  color: var(--mainWhite);
-  margin-top: -10rem;
-  text-align: center;
-  text-transform: capitalize;
-}
-.banner-title {
-  color: var(--mainPink);
-  font-size: 6rem;
-}
-.banner-link {
-  font-size: 1.5rem;
-  color: var(--mainBlack);
-  border: 0.2rem solid var(--mainBlack);
-}
-.banner-link:hover {
-  background: var(--mainBlack);
-  color: var(--mainPink);
-}
-
-/* endo of banner */
-/* cart  */
-
 
 .footer {
-  font-size: 1.5rem;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1rem;
   text-align: center;
   left: 0;
   bottom: 0;
   position: fixed inherit;
-  
   width: 100%;
   color: var(--mainPink);
 }

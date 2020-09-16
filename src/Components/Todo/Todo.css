@@ -35,6 +35,7 @@
   font-size: 20px;
   color: black;
   text-align: center;
+  line-height: 2rem;
 }
 .todoList ul {
   align-content: center;
@@ -98,6 +99,7 @@ form {
   border-radius: 0.25rem;
   padding: 0.5rem;
   color: var(--mainPink);
+  cursor: pointer;
 }
 
 .TodoBtn:hover {
@@ -110,4 +112,5 @@ form {
 
 .task-container {
   align-items: center;
+  line-height: 3rem;
 }

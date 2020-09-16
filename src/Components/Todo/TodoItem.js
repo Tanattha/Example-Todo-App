@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Todo.css";
-//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-//import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckCircle, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 export default class TodoItem extends Component {
   constructor(props) {
@@ -63,27 +63,25 @@ export default class TodoItem extends Component {
       );
     }
     return (
+        
+    
+  
       <td>
-        {/*  <span className="TodoBtn" onClick={this.setDoneState.bind(this, true)}>
+        
+   
+          <span className="TodoBtn"  onClick={() => this.setDoneState(true)}>
           <FontAwesomeIcon icon={faCheckCircle} />
         </span>
-    */}
-        <button
-          className="TodoBtn"
-          onClick={() => this.setDoneState(true)}
-        >
-          Done
-        </button>
-        <button
-          className="TodoBtn"
-          onClick={() => this.setEditState(true)}
-        >
-          Edit
-        </button>
-        <button className="TodoBtn" 
-        onClick={() => this.deleteTask()}>
-          Delete
-        </button>
+        &nbsp;&nbsp;
+        <span className="TodoBtn"  onClick={() => this.setEditState(true)}>
+          <FontAwesomeIcon icon={faEdit} />
+        </span>
+        &nbsp;&nbsp;
+        <span className="TodoBtn"  onClick={() => this.deleteTask()}>
+          <FontAwesomeIcon icon={faTrash} />
+        </span>
+      
+
       </td>
     );
   }
@@ -130,7 +128,7 @@ export default class TodoItem extends Component {
     }
     return (
       <div className="task-container" onClick={this.toggleTask}>
-        Due Date: {date} &nbsp;|&nbsp; Task : {task} &nbsp;&nbsp;
+        Due Date: {date} &nbsp;|&nbsp; {task} &nbsp;&nbsp;
       </div>
     );
   }
