@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./Todo.css";
+//import { faHome } from "@fortawesome/free-solid-svg-icons";
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class TodoItem extends Component {
   constructor(props) {

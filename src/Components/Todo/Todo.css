@@ -1,6 +1,4 @@
-
 .todo .header {
-  
   align-content: center;
   min-height: 100vh;
   max-height: 100vh;
@@ -14,9 +12,7 @@
   color: var(--mainPink);
 }
 .todo-text {
-  
   font-family: "Fredoka One", cursive;
-  
   font-size: 15px;
   color: var(--mainPink);
 }
@@ -29,18 +25,23 @@
 .todo h2 {
   font-family: "Fredoka One", cursive;
   width: 100%;
-  text-align: center;
+  
   font-size: 60px;
   color: black;
   margin-top: 2rem;
 }
 .todoList {
-    font-family: "Fredoka One", cursive;
-    font-size: 20px;
-    color: black;
-    margin-left: 13rem;
-  }
-
+  font-family: "Fredoka One", cursive;
+  font-size: 20px;
+  color: black;
+  text-align: center;
+}
+.todoList ul {
+  align-content: center;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
 .todo h2:hover {
   color: white;
 }
@@ -59,54 +60,52 @@
 }
 
 form {
-    width: 100%;
-  }
+  width: 100%;
+}
 .form-container {
-    width: 100%;
-    padding: 0;
-    line-height: 1.5;
-    list-style-type: none;
-    margin-left: 15rem;
-  }
+  width: 100%;
+  padding: 0;
+  line-height: 1.5;
+  list-style-type: none;
+  margin-left: 15rem;
+}
 .form-container li {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    line-height: 1.5;
-  }
-.form-input{
-    line-height: 2;
-    width: 600px;
-  }
-  .date-input{
-    line-height: 2;
-   
-  }
-.form-input2{
-    line-height: 2;
-    width: 500px;
-  }
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  line-height: 1.5;
+}
+.form-input {
+  line-height: 2;
+  width: 600px;
+}
+.date-input {
+  line-height: 2;
+}
+.form-input2 {
+  line-height: 2;
+  width: 500px;
+}
 
 .TodoBtn {
-    font-family: "Fredoka One", cursive;
-    background-color: black;
-    text-align: center;
-    vertical-align: middle;
-    user-select: none;
-    font-size: 1rem;
-    text-transform: uppercase;
-    border-radius: 0.25rem;
-    padding: 0.5rem;
-    color: var(--mainPink)
-   
-  }
-  
+  font-family: "Fredoka One", cursive;
+  background-color: black;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  color: var(--mainPink);
+}
+
 .TodoBtn:hover {
-    color: white;
-  }
+  color: white;
+}
 
 .TodoInput {
-    align-items: center;
+  align-items: center;
 }
 
 .task-container {

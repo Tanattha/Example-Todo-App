@@ -21,9 +21,11 @@ export default class TodoList extends Component {
   render() {
     return (
       <div className="container">
-        <ul >
-          <li className="todoList">{this.renderItems()}</li>
-        </ul>
+        <div className="todoList">
+          <ul>
+            <li> {this.renderItems()} </li>
+          </ul>
+        </div>
       </div>
     );
   }
