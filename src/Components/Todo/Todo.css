@@ -1,0 +1,95 @@
+
+.todo .header {
+  
+  align-content: center;
+  min-height: 100vh;
+  max-height: 100vh;
+}
+.todo h1 {
+  margin-top: 0;
+  font-family: "Fredoka One", cursive;
+  width: 100%;
+  text-align: center;
+  font-size: 80px;
+  color: var(--mainPink);
+}
+.todo h1:hover {
+  color: black;
+}
+.todo h2 {
+  font-family: "Fredoka One", cursive;
+  width: 100%;
+  text-align: center;
+  font-size: 60px;
+  color: black;
+  margin-top: 2rem;
+}
+.todoList {
+    font-family: "Fredoka One", cursive;
+    font-size: 20px;
+    color: black;
+   
+  }
+
+.todo h2:hover {
+  color: white;
+}
+.todo-icon-container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.todo-icon {
+  width: auto;
+  height: 50px;
+  justify-content: space-between;
+}
+.todo-icon:hover {
+  opacity: 60%;
+}
+
+form {
+    width: 100%;
+  }
+.form-container {
+    width: 100%;
+    padding: 0;
+    line-height: 1.5;
+    list-style-type: none;
+  }
+.form-container li {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    line-height: 1.5;
+  }
+.form-input{
+    line-height: 2;
+    width: 800px;
+  }
+.form-input2{
+    line-height: 2;
+    width: 500px;
+  }
+
+.TodoBtn {
+    font-family: "Fredoka One", cursive;
+    background-color: black;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    color: var(--mainPink)
+   
+  }
+  
+.TodoBtn:hover {
+    color: white;
+  }
+
+.TodoInput {
+    align-items: center;
+}

@@ -1,0 +1,55 @@
+.contact {
+  background-image: url("/img/contactBG.jpg");
+
+  background-size: cover;
+  min-height: 100vh;
+  max-height: 100vh;
+}
+
+.contact .header {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  min-height: 100vh;
+  max-height: 100vh;
+}
+.contact h1 {
+  margin-top: 0;
+  font-family: "Fredoka One", cursive;
+  width: 100%;
+  text-align: center;
+  font-size: 80px;
+  color: var(--mainPink);
+}
+.contact h1:hover {
+  color: black;
+}
+.contact h2 {
+  font-family: "Fredoka One", cursive;
+  width: 100%;
+  text-align: center;
+  font-size: 60px;
+  color: black;
+  margin-top: 2rem;
+}
+
+.contact h2:hover {
+  color: white;
+}
+.contact-icon-container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.contact-icon {
+  width: auto;
+  height: 50px;
+  justify-content: space-between;
+}
+.contact-icon:hover {
+  opacity: 60%;
+}
+
+.profile {
+  border-radius: 50%;
+}
