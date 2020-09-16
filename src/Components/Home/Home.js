@@ -7,13 +7,10 @@ const todos = {
   items: [],
   lsKey: "todos",
   populate() {
-    this.items = this.get();
+    this.items = this.getTask();
   },
-  get() {
-    try {
+  getTask() {
       return JSON.parse(localStorage.getItem(this.lsKey)) || [];
-    } catch (e) {}
-    return [];
   },
   save() {
     localStorage.setItem(this.lsKey, JSON.stringify(this.items));
@@ -48,6 +45,7 @@ export default class Home extends Component {
       todos: todos.items,
     };
   }
+/* Main Page */
   render() {
     return (
         <header className="home">
@@ -68,6 +66,7 @@ export default class Home extends Component {
       </header>
     );
   }
+/* States Change */
 
   createTask(task,date ) {
     task = task.trim();
@@ -88,8 +87,6 @@ export default class Home extends Component {
   }
   editTask(taskId, task, date) {
     todos.update(taskId, task, date);
-    console.log(task)
-    console.log(date)
     this.setState({ todos: this.state.todos });
   }
   deleteTask(taskId) {

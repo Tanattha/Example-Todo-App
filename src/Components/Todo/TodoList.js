@@ -3,12 +3,14 @@ import "./Todo.css";
 import TodoItem from "./TodoItem";
 
 export default class TodoList extends Component {
+/* Show List */
+
   renderItems() {
-    return this.props.todos.map((c, index) => {
+    return this.props.todos.map((previousTask, index) => {
       return (
         <TodoItem
           key={index}
-          {...c}
+          {...previousTask}
           id={index}
           toggleTask={this.props.toggleTask}
           doneTask={this.props.doneTask}

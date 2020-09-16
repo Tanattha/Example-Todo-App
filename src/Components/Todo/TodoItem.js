@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Todo.css";
-//import { faHome } from "@fortawesome/free-solid-svg-icons";
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
 export default class TodoItem extends Component {
   constructor(props) {
@@ -11,17 +11,53 @@ export default class TodoItem extends Component {
       isDone: false,
     };
   }
+/* Actions */
+  toggleTask() {
+    this.props.toggleTask(this.props.id);
+  }
 
-  renderActionSection() {
+  setDoneState(isDone) {
+   // this.props.setDoneState(this.props.id);
+    this.setState({
+     isDone: isDone,
+    });
+  }
+
+  setEditState(isEditing) {
+    // this.props.setEditState(this.props.id);
+    this.setState({
+      isEditing,
+    });
+  }
+
+  editTask(e) {
+    this.props.editTask(
+      this.props.id,
+      this.refs.task.value,
+      this.refs.date.value
+    );
+    this.setState({
+      isEditing: false,
+    });
+    e.preventDefault();
+  }
+
+  deleteTask() {
+    this.props.deleteTask(this.props.id);
+  }
+
+  /* Options Menu */
+  renderOptions() {
     if (this.state.isEditing) {
       return (
         <td>
-          <button className="TodoBtn" onClick={this.editTask.bind(this)}>
+          <button className="TodoBtn" 
+          onClick={(e) => this.editTask(e)}>
             Save
           </button>
           <button
             className="TodoBtn"
-            onClick={this.setEditState.bind(this, false)}
+            onClick={() => this.setEditState(true)}
           >
             Cancel
           </button>
@@ -30,25 +66,31 @@ export default class TodoItem extends Component {
     }
     return (
       <td>
+        {/*  <span className="TodoBtn" onClick={this.setDoneState.bind(this, true)}>
+          <FontAwesomeIcon icon={faCheckCircle} />
+        </span>
+    */}
         <button
           className="TodoBtn"
-          onClick={this.setDoneState.bind(this, true)}
+          onClick={() => this.setDoneState(true)}
         >
           Done
         </button>
         <button
           className="TodoBtn"
-          onClick={this.setEditState.bind(this, true)}
+          onClick={() => this.setEditState(true)}
         >
           Edit
         </button>
-        <button className="TodoBtn" onClick={this.deleteTask.bind(this)}>
+        <button className="TodoBtn" 
+        onClick={() => this.deleteTask()}>
           Delete
         </button>
       </td>
     );
   }
 
+  /* Main Task */
   renderTask() {
     const { task, date } = this.props;
 
@@ -89,54 +131,19 @@ export default class TodoItem extends Component {
       );
     }
     return (
-      <div className="task-container" onClick={this.toggleTask.bind(this)}>
-        Due Date: {date} &nbsp;|&nbsp; Task : {task}
-        &nbsp;&nbsp;
+      <div className="task-container" onClick={this.toggleTask}>
+        Due Date: {date} &nbsp;|&nbsp; Task : {task} &nbsp;&nbsp;
       </div>
     );
   }
 
+  /*Combined Renders */
   render() {
     return (
       <tr>
         {this.renderTask()}
-        {this.renderActionSection()}
+        {this.renderOptions()}
       </tr>
     );
-  }
-
-  setEditState(isEditing) {
-    this.setState({
-      isEditing,
-    });
-  }
-
-  setDoneState(isDone) {
-    this.setState({
-      isDone,
-    });
-  }
-
-  toggleTask() {
-    this.props.toggleTask(this.props.id);
-  }
-
-  doneTask() {
-    this.props.doneTask(this.props.id);
-    this.setState({
-      isDone: false,
-    });
-  }
-
-  editTask(e) {
-    this.props.editTask(this.props.id, this.refs.task.value, this.refs.date.value);
-    this.setState({
-      isEditing: false,
-    });
-    e.preventDefault();
-  }
-
-  deleteTask() {
-    this.props.deleteTask(this.props.id);
   }
 }

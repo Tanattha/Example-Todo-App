@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Todo.css";
-//import DatePicker from "react-datepicker";
 
 export default class TodoInput extends Component {
   state = {
