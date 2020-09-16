@@ -17,14 +17,12 @@ export default class TodoItem extends Component {
   }
 
   setDoneState(isDone) {
-   // this.props.setDoneState(this.props.id);
     this.setState({
      isDone: isDone,
     });
   }
 
   setEditState(isEditing) {
-    // this.props.setEditState(this.props.id);
     this.setState({
       isEditing,
     });

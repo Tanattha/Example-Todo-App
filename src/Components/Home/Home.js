@@ -10,7 +10,7 @@ const todos = {
     this.items = this.getTask();
   },
   getTask() {
-      return JSON.parse(localStorage.getItem(this.lsKey)) || [];
+    return JSON.parse(localStorage.getItem(this.lsKey)) || [];
   },
   save() {
     localStorage.setItem(this.lsKey, JSON.stringify(this.items));
@@ -45,34 +45,9 @@ export default class Home extends Component {
       todos: todos.items,
     };
   }
-/* Main Page */
-  render() {
-    return (
-        <header className="home">
-        <div className="container header">
-        <h1>Example Todo App</h1>
-        <TodoInput createTask={this.createTask.bind(this)} />
-        
-        
-        <TodoList
-          todos={this.state.todos}
-          toggleTask={this.toggleTask.bind(this)}
-          editTask={this.editTask.bind(this)}
-          deleteTask={this.deleteTask.bind(this)}
-        />
+  /* States Change */
 
-
-      </div>
-      </header>
-    );
-  }
-/* States Change */
-
-  createTask(task,date ) {
-    task = task.trim();
-    if (!task) {
-      return;
-    }
+  createTask(task, date) {
     todos.add({
       task,
       date,
@@ -92,5 +67,24 @@ export default class Home extends Component {
   deleteTask(taskId) {
     todos.remove(taskId);
     this.setState({ todos: this.state.todos });
+  }
+
+  /* Main Page */
+  render() {
+    return (
+      <header className="home">
+        <div className="container header">
+          <h1>Example Todo App</h1>
+          <TodoInput createTask={(task, date) => this.createTask(task, date)} />
+
+          <TodoList
+            todos={this.state.todos}
+            toggleTask={(taskId) => this.toggleTask(taskId)}
+            editTask={(taskId, task, date) => this.editTask(taskId, task, date)}
+            deleteTask={(taskId) => this.deleteTask(taskId)}
+          />
+        </div>
+      </header>
+    );
   }
 }

@@ -24,6 +24,7 @@ export default class TodoInput extends Component {
               ref="taskDuedate"
               onChange={this.handleChange}
               selected={this.state.startDate}
+              required="true"
             />
 
             <p className="todo-text">Due Date</p>
@@ -34,6 +35,7 @@ export default class TodoInput extends Component {
               ref="taskMessage"
               className="form-input"
               autoFocus
+              required="true"
             />
 
             <button className="TodoBtn">Add</button>
