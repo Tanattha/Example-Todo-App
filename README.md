@@ -6,7 +6,7 @@ This app was built with React and designed by HTML and CSS and bootstrapped. Thi
 
 ## Live App
 
-[CLICK HERE](https://sweetie-frontend.herokuapp.com/)
+[CLICK HERE](https://example-todo-app.herokuapp.com/)
 
 ## Available Scripts
 

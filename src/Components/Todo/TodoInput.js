@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Todo.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus} from '@fortawesome/free-solid-svg-icons'
 
 export default class TodoInput extends Component {
   state = {
@@ -40,7 +40,7 @@ export default class TodoInput extends Component {
               required="true"
             />
             &nbsp;&nbsp;
-            <span className="TodoBtn">
+            <span className="TodoBtn" onClick={this.onSubmit.bind(this)}>
               <FontAwesomeIcon icon={faPlus} />
             </span>
           </ul>

@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import "./Todo.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheckCircle, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCheckCircle,
+  faEdit,
+  faTrash,
+  faWindowClose,
+  faSave,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default class TodoItem extends Component {
   constructor(props) {
@@ -11,14 +17,14 @@ export default class TodoItem extends Component {
       isDone: false,
     };
   }
-/* Actions */
+  /* Actions */
   toggleTask() {
     this.props.toggleTask(this.props.id);
   }
 
   setDoneState(isDone) {
     this.setState({
-     isDone: isDone,
+      isDone: isDone,
     });
   }
 
@@ -49,39 +55,29 @@ export default class TodoItem extends Component {
     if (this.state.isEditing) {
       return (
         <td>
-          <button className="TodoBtn" 
-          onClick={(e) => this.editTask(e)}>
-            Save
-          </button>
-          <button
-            className="TodoBtn"
-            onClick={() => this.setEditState(true)}
-          >
-            Cancel
-          </button>
+            <span className="TodoBtn" onClick={(e) => this.editTask(e)}>
+          <FontAwesomeIcon icon={faSave} />
+        </span>
+        &nbsp;&nbsp;
+        <span className="TodoBtn" onClick={() => this.setEditState(true)}>
+          <FontAwesomeIcon icon={faWindowClose} />
+        </span>
         </td>
       );
     }
     return (
-        
-    
-  
       <td>
-        
-   
-          <span className="TodoBtn"  onClick={() => this.setDoneState(true)}>
+        <span className="TodoBtn" onClick={() => this.setDoneState(true)}>
           <FontAwesomeIcon icon={faCheckCircle} />
         </span>
         &nbsp;&nbsp;
-        <span className="TodoBtn"  onClick={() => this.setEditState(true)}>
+        <span className="TodoBtn" onClick={() => this.setEditState(true)}>
           <FontAwesomeIcon icon={faEdit} />
         </span>
         &nbsp;&nbsp;
-        <span className="TodoBtn"  onClick={() => this.deleteTask()}>
+        <span className="TodoBtn" onClick={() => this.deleteTask()}>
           <FontAwesomeIcon icon={faTrash} />
         </span>
-      
-
       </td>
     );
   }
