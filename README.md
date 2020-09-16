@@ -2,7 +2,7 @@
 
 This app was built with React and designed by HTML and CSS and bootstrapped. This's a sample Todo app that allows you to create your list with a due date, edit, delete and mark as complete feature.
 
-<img src="./public/img/example-pic.png" width="640" height="350" />
+<img src="./public/img/example-pic.png" width="600" height="350" />
 
 ## Live App
 
