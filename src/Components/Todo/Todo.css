@@ -13,6 +13,16 @@
   font-size: 80px;
   color: var(--mainPink);
 }
+.todo-text {
+  
+  font-family: "Fredoka One", cursive;
+  
+  font-size: 15px;
+  color: var(--mainPink);
+}
+.todo p:hover {
+  color: black;
+}
 .todo h1:hover {
   color: black;
 }
@@ -28,7 +38,7 @@
     font-family: "Fredoka One", cursive;
     font-size: 20px;
     color: black;
-   
+    margin-left: 13rem;
   }
 
 .todo h2:hover {
@@ -56,6 +66,7 @@ form {
     padding: 0;
     line-height: 1.5;
     list-style-type: none;
+    margin-left: 15rem;
   }
 .form-container li {
     display: flex;
@@ -65,7 +76,11 @@ form {
   }
 .form-input{
     line-height: 2;
-    width: 800px;
+    width: 600px;
+  }
+  .date-input{
+    line-height: 2;
+   
   }
 .form-input2{
     line-height: 2;
@@ -92,4 +107,8 @@ form {
 
 .TodoInput {
     align-items: center;
+}
+
+.task-container {
+  align-items: center;
 }

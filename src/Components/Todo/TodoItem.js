@@ -48,12 +48,20 @@ export default class TodoItem extends Component {
   }
 
   renderTask() {
-    const { task } = this.props;
-    
+    const { task, date } = this.props;
+
     if (this.state.isEditing) {
       return (
         <td>
           <form onSubmit={this.editTask.bind(this)}>
+            <input
+              ref="date"
+              defaultValue={date}
+              className="form-input2"
+              type="date"
+              autoFocus
+            />
+
             <input
               ref="task"
               defaultValue={task}
@@ -64,21 +72,26 @@ export default class TodoItem extends Component {
         </td>
       );
     }
-    if (this.state.isDone) { 
+    if (this.state.isDone) {
       return (
         <div>
-        <li
-          style={{
-            textDecoration: 'line-through' , 
-            textDecorationColor: 'red'
-          }}
-        >
-          {task}
-        </li>
-      </div>
-      )
+          <li
+            style={{
+              textDecoration: "line-through",
+              textDecorationColor: "red",
+            }}
+          >
+            {task}
+          </li>
+        </div>
+      );
     }
-    return <td onClick={this.toggleTask.bind(this)}>{task}</td>;
+    return (
+      <div className="task-container" onClick={this.toggleTask.bind(this)}>
+        Due Date: {date} &nbsp;|&nbsp; Task : {task}
+        &nbsp;&nbsp;
+      </div>
+    );
   }
 
   render() {
@@ -114,7 +127,7 @@ export default class TodoItem extends Component {
   }
 
   editTask(e) {
-    this.props.editTask(this.props.id, this.refs.task.value);
+    this.props.editTask(this.props.id, this.refs.task.value, this.refs.date.value);
     this.setState({
       isEditing: false,
     });

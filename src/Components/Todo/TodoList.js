@@ -10,8 +10,8 @@ export default class TodoList extends Component {
           key={index}
           {...c}
           id={index}
-          doneTask={this.props.doneTask}
           toggleTask={this.props.toggleTask}
+          doneTask={this.props.doneTask}
           editTask={this.props.editTask}
           deleteTask={this.props.deleteTask}
         />

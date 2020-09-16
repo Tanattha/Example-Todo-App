@@ -31,9 +31,10 @@ const todos = {
     this.items.splice(id, 1);
     this.save();
   },
-  update(id, task) {
+  update(id, task, date) {
     let todoItem = this.items[id];
     todoItem.task = task;
+    todoItem.date = date;
     this.save();
   },
 };
@@ -61,18 +62,21 @@ export default class Home extends Component {
           editTask={this.editTask.bind(this)}
           deleteTask={this.deleteTask.bind(this)}
         />
+
+
       </div>
       </header>
     );
   }
 
-  createTask(task) {
+  createTask(task,date ) {
     task = task.trim();
     if (!task) {
       return;
     }
     todos.add({
       task,
+      date,
       isCompleted: false,
     });
     this.setState({ todos: this.state.todos });
@@ -82,8 +86,10 @@ export default class Home extends Component {
     todos.toggle(taskId);
     this.setState({ todos: this.state.todos });
   }
-  editTask(taskId, task) {
-    todos.update(taskId, task);
+  editTask(taskId, task, date) {
+    todos.update(taskId, task, date);
+    console.log(task)
+    console.log(date)
     this.setState({ todos: this.state.todos });
   }
   deleteTask(taskId) {
