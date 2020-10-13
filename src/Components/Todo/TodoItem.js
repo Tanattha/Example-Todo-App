@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Todo.css";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheckCircle,
@@ -14,7 +15,6 @@ export default class TodoItem extends Component {
     super(props);
     this.state = {
       isEditing: false,
-      isDone: false,
     };
   }
   /* Actions */
@@ -22,10 +22,8 @@ export default class TodoItem extends Component {
     this.props.toggleTask(this.props.id);
   }
 
-  setDoneState(isDone) {
-    this.setState({
-      isDone: isDone,
-    });
+  doneTask() {
+    this.props.doneTask(this.props.id);
   }
 
   setEditState(isEditing) {
@@ -50,34 +48,60 @@ export default class TodoItem extends Component {
     this.props.deleteTask(this.props.id);
   }
 
-  /* Options Menu */
-  renderOptions() {
+  /* isEditing Menu */
+  renderisEditing() {
     if (this.state.isEditing) {
       return (
         <td>
-            <span className="TodoBtn" onClick={(e) => this.editTask(e)}>
-          <FontAwesomeIcon icon={faSave} />
-        </span>
-        &nbsp;&nbsp;
-        <span className="TodoBtn" onClick={() => this.setEditState(true)}>
-          <FontAwesomeIcon icon={faWindowClose} />
-        </span>
+          <span className="TodoBtn" onClick={(e) => this.editTask(e)}>
+            <FontAwesomeIcon icon={faSave} />
+          </span>
+          &nbsp;&nbsp;
+          <span className="TodoBtn" onClick={() => this.setEditState(false)}>
+            <FontAwesomeIcon icon={faWindowClose} />
+          </span>
         </td>
       );
     }
     return (
       <td>
-        <span className="TodoBtn" onClick={() => this.setDoneState(true)}>
-          <FontAwesomeIcon icon={faCheckCircle} />
-        </span>
         &nbsp;&nbsp;
         <span className="TodoBtn" onClick={() => this.setEditState(true)}>
           <FontAwesomeIcon icon={faEdit} />
         </span>
         &nbsp;&nbsp;
-        <span className="TodoBtn" onClick={() => this.deleteTask()}>
+        <span
+          className="TodoBtn"
+          onClick={() => this.deleteTask(this.props.id)}
+        >
           <FontAwesomeIcon icon={faTrash} />
         </span>
+      </td>
+    );
+  }
+
+  /* isCompleted Menu */
+  renderisCompleted() {
+    if (this.props.isCompleted === true) {
+      return (
+        <td>
+          <span
+            className="TodoBtn"
+            onClick={() => this.doneTask(this.props.id)}
+          >
+            <FontAwesomeIcon icon={faWindowClose} />
+          </span>
+          &nbsp;&nbsp;
+        </td>
+      );
+    }
+
+    return (
+      <td>
+        <span className="TodoBtn" onClick={() => this.doneTask(this.props.id)}>
+          <FontAwesomeIcon icon={faCheckCircle} />
+        </span>
+        &nbsp;&nbsp;
       </td>
     );
   }
@@ -85,11 +109,10 @@ export default class TodoItem extends Component {
   /* Main Task */
   renderTask() {
     const { task, date } = this.props;
-
     if (this.state.isEditing) {
       return (
         <td>
-          <form onSubmit={this.editTask.bind(this)}>
+          <form onSubmit={(e) => this.editTask(e)}>
             <input
               ref="date"
               defaultValue={date}
@@ -108,20 +131,21 @@ export default class TodoItem extends Component {
         </td>
       );
     }
-    if (this.state.isDone) {
+    if (this.props.isCompleted === true) {
       return (
-        <div>
+        <div className="task-container">
           <li
             style={{
               textDecoration: "line-through",
               textDecorationColor: "red",
             }}
           >
-            {task}
+            Due Date: {date} &nbsp;|&nbsp; {task} &nbsp;&nbsp;
           </li>
         </div>
       );
     }
+
     return (
       <div className="task-container" onClick={this.toggleTask}>
         Due Date: {date} &nbsp;|&nbsp; {task} &nbsp;&nbsp;
@@ -133,8 +157,9 @@ export default class TodoItem extends Component {
   render() {
     return (
       <tr>
+        {this.renderisCompleted()}
         {this.renderTask()}
-        {this.renderOptions()}
+        {this.renderisEditing()}
       </tr>
     );
   }

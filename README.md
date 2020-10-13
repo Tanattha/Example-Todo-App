@@ -1,4 +1,4 @@
-### Example-todo-App
+# Example-Todo-App
 
 This app was built with React and designed by HTML and CSS and bootstrapped. This's a sample Todo app that allows you to create your list with a due date, edit, delete and mark as completed feature.
 
@@ -74,4 +74,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# Example-Todo-App
+

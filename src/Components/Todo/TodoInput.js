@@ -13,42 +13,8 @@ export default class TodoInput extends Component {
       startDate: date,
     });
   };
-  render() {
-    return (
-      <div className="todo-from">
-        <form onSubmit={this.onSubmit.bind(this)}>
-          <ul className="form-container">
-            <input
-              className="form-input"
-              name="deadline"
-              type="date"
-              placeholder="Due Date"
-              ref="taskDuedate"
-              onChange={this.handleChange}
-              selected={this.state.startDate}
-              required="true"
-            />
 
-            <p className="todo-text">Due Date</p>
-
-            <input
-              type="text"
-              placeholder="type here..."
-              ref="taskMessage"
-              className="form-input"
-              autoFocus
-              required="true"
-            />
-            &nbsp;&nbsp;
-            <span className="TodoBtn" onClick={this.onSubmit.bind(this)}>
-              <FontAwesomeIcon icon={faPlus} />
-            </span>
-          </ul>
-        </form>
-      </div>
-    );
-  }
-  onSubmit(e) {
+  onSubmit = (e) => {
     this.props.createTask(
       this.refs.taskMessage.value,
       this.refs.taskDuedate.value
@@ -57,4 +23,41 @@ export default class TodoInput extends Component {
     this.refs.taskDuedate.value = "";
     e.preventDefault();
   }
+
+  render() {
+    return (
+      <div className="todo-from">
+        <form onSubmit={this.onSubmit}>
+          <ul className="form-container">
+            <input
+              className="form-input"
+              name="date"
+              type="date"
+              placeholder="Due Date"
+              ref="taskDuedate"
+              onChange={this.handleChange}
+              required="true"
+            />
+
+            <p className="todo-text">Due Date</p>
+
+            <input
+              name="task"
+              type="text"
+              placeholder="type here..."
+              ref="taskMessage"
+              className="form-input"
+              autoFocus
+              required="true"
+            />
+            &nbsp;&nbsp;
+            <span className="TodoBtn" onClick={this.onSubmit}>
+              <FontAwesomeIcon icon={faPlus} />
+            </span>
+          </ul>
+        </form>
+      </div>
+    );
+  }
+
 }
