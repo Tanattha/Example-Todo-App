@@ -6,37 +6,47 @@ import TodoList from "../Todo/TodoList";
 const todos = {
   items: [],
   lsKey: "todos",
-  populate() {
-    this.items = this.getTask();
+
+  loadTask() {
+   this.items = JSON.parse(localStorage.getItem(this.lsKey)) || [];
   },
-  getTask() {
-    return JSON.parse(localStorage.getItem(this.lsKey)) || [];
-  },
+  
   save() {
     localStorage.setItem(this.lsKey, JSON.stringify(this.items));
   },
+
   toggle(id) {
     let todoItem = this.items[id];
     todoItem.isCompleted = !todoItem.isCompleted;
     this.save();
   },
+
   add(obj) {
     this.items.push(obj);
     this.save();
   },
+
   remove(id) {
     this.items.splice(id, 1);
     this.save();
   },
+
   update(id, task, date) {
     let todoItem = this.items[id];
     todoItem.task = task;
     todoItem.date = date;
     this.save();
   },
+
+  done(id) {
+    let todoItem = this.items[id];
+    todoItem.isCompleted = !todoItem.isCompleted;
+    this.save();
+  },
 };
 
-todos.populate();
+todos.loadTask();
+
 
 export default class Home extends Component {
   constructor(props) {
@@ -46,7 +56,6 @@ export default class Home extends Component {
     };
   }
 /* States Change */
-
   createTask(task, date) {
     todos.add({
       task,
@@ -60,12 +69,19 @@ export default class Home extends Component {
     todos.toggle(taskId);
     this.setState({ todos: this.state.todos });
   }
+
   editTask(taskId, task, date) {
     todos.update(taskId, task, date);
     this.setState({ todos: this.state.todos });
   }
+
   deleteTask(taskId) {
     todos.remove(taskId);
+    this.setState({ todos: this.state.todos });
+  }
+
+  doneTask(taskId) {
+    todos.done(taskId);
     this.setState({ todos: this.state.todos });
   }
 
@@ -82,6 +98,7 @@ export default class Home extends Component {
             toggleTask={(taskId) => this.toggleTask(taskId)}
             editTask={(taskId, task, date) => this.editTask(taskId, task, date)}
             deleteTask={(taskId) => this.deleteTask(taskId)}
+            doneTask={(taskId) => this.doneTask(taskId)}
           />
         </div>
       </header>

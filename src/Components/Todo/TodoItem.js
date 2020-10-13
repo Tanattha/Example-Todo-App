@@ -18,21 +18,21 @@ export default class TodoItem extends Component {
     };
   }
   /* Actions */
-  toggleTask() {
-    this.props.toggleTask(this.props.id);
+  toggleTask = (id) => {
+    this.props.toggleTask(id);
   }
 
-  doneTask() {
-    this.props.doneTask(this.props.id);
+  doneTask = (id) => {
+    this.props.doneTask(id);
   }
 
-  setEditState(isEditing) {
+  setEditState = (isEditing) => {
     this.setState({
       isEditing,
     });
   }
 
-  editTask(e) {
+  editTask = (e) => {
     this.props.editTask(
       this.props.id,
       this.refs.task.value,
@@ -44,8 +44,8 @@ export default class TodoItem extends Component {
     e.preventDefault();
   }
 
-  deleteTask() {
-    this.props.deleteTask(this.props.id);
+  deleteTask = (id) => {
+    this.props.deleteTask(id);
   }
 
   /* isEditing Menu */

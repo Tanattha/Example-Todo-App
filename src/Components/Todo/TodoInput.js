@@ -47,13 +47,12 @@ export default class TodoInput extends Component {
               placeholder="type here..."
               ref="taskMessage"
               className="form-input"
-              autoFocus
               required="true"
             />
             &nbsp;&nbsp;
-            <span className="TodoBtn" onClick={this.onSubmit}>
+            <button className="TodoBtn" type="submit" onSubmit={this.onSubmit}>
               <FontAwesomeIcon icon={faPlus} />
-            </span>
+            </button>
           </ul>
         </form>
       </div>
