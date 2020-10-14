@@ -48,11 +48,14 @@ const todos = {
 todos.loadTask();
 
 export default class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todos: todos.items,
-    };
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     todos: todos.items,
+  //   };
+  // }
+  state = {
+    todos: todos.items
   }
   /* States Change */
   createTask(task, date) {
@@ -61,27 +64,27 @@ export default class Home extends Component {
       date,
       isCompleted: false,
     });
-    this.setState({ todos: this.state.todos });
+    this.setState({ todos: todos.items });
   }
 
   toggleTask(taskId) {
     todos.toggle(taskId);
-    this.setState({ todos: this.state.todos });
+    this.setState({ todos: todos.items });
   }
 
   editTask(taskId, task, date) {
     todos.update(taskId, task, date);
-    this.setState({ todos: this.state.todos });
+    this.setState({ todos: todos.items });
   }
 
   deleteTask(taskId) {
     todos.remove(taskId);
-    this.setState({ todos: this.state.todos });
+    this.setState({ todos: todos.items });
   }
 
   doneTask(taskId) {
     todos.done(taskId);
-    this.setState({ todos: this.state.todos });
+    this.setState({ todos: todos.items });
   }
 
   /* Main Page */

@@ -42,7 +42,9 @@ export default class TodoItem extends Component {
   }
 
   editTask = (e) => {
-    this.props.editTask(this.props.id, this.state.task, this.state.date);
+    const task = this.state.task? this.state.task : this.props.task;
+    const date = this.state.date? this.state.date : this.props.date;
+    this.props.editTask(this.props.id,task, date);
     this.setState({
       isEditing: false,
     });
