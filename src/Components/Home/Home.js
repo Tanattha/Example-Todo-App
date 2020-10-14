@@ -48,12 +48,7 @@ const todos = {
 todos.loadTask();
 
 export default class Home extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     todos: todos.items,
-  //   };
-  // }
+
   state = {
     todos: todos.items
   }

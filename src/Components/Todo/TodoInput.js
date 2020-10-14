@@ -5,7 +5,6 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 const initialState = {
   task: "",
   date: "",
-  category: "",
 };
 export default class TodoInput extends Component {
   state = { initialState };
@@ -20,7 +19,6 @@ export default class TodoInput extends Component {
     this.props.createTask(
       this.state.task,
       this.state.date,
-      this.state.category
     );
     this.setState(initialState);
   };
