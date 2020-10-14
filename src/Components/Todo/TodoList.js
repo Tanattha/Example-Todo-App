@@ -3,9 +3,9 @@ import "./Todo.css";
 import TodoItem from "./TodoItem";
 
 export default class TodoList extends Component {
-/* Show List */
-
+  /* Show List */
   renderItems() {
+
     return this.props.todos.map((previousTask, index) => {
       return (
         <TodoItem

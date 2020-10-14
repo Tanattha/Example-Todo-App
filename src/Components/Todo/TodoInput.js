@@ -8,9 +8,9 @@ export default class TodoInput extends Component {
     startDate: new Date(),
   };
 
-  handleChange = (date) => {
+  handleChange = (e) => {
     this.setState({
-      startDate: date,
+      startDate: e.target.value,
     });
   };
 
