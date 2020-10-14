@@ -48,10 +48,9 @@ const todos = {
 todos.loadTask();
 
 export default class Home extends Component {
-
   state = {
-    todos: todos.items
-  }
+    todos: todos.items,
+  };
   /* States Change */
   createTask(task, date) {
     todos.add({
@@ -77,7 +76,7 @@ export default class Home extends Component {
     this.setState({ todos: todos.items });
   }
 
-  doneTask(taskId) {
+  doneTask(taskId, date) {
     todos.done(taskId);
     this.setState({ todos: todos.items });
   }
@@ -88,11 +87,7 @@ export default class Home extends Component {
       <header className="home">
         <div className="container header">
           <h1>Example Todo App</h1>
-          <TodoInput
-            createTask={(task, date) =>
-              this.createTask(task, date)
-            }
-          />
+          <TodoInput createTask={(task, date) => this.createTask(task, date)} />
 
           <TodoList
             todos={this.state.todos}

@@ -16,10 +16,7 @@ export default class TodoInput extends Component {
   };
 
   onSubmit = () => {
-    this.props.createTask(
-      this.state.task,
-      this.state.date,
-    );
+    this.props.createTask(this.state.task, this.state.date);
     this.setState(initialState);
   };
 

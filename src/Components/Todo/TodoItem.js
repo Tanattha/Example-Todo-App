@@ -14,6 +14,7 @@ const initialState = {
   date: "",
   isEditing: false,
 };
+
 export default class TodoItem extends Component {
   constructor(props) {
     super(props);
@@ -41,14 +42,13 @@ export default class TodoItem extends Component {
     });
   }
 
-  editTask = (e) => {
-    const task = this.state.task? this.state.task : this.props.task;
-    const date = this.state.date? this.state.date : this.props.date;
-    this.props.editTask(this.props.id,task, date);
+  editTask = () => {
+    const task = this.state.task ? this.state.task : this.props.task;
+    const date = this.state.date ? this.state.date : this.props.date;
+    this.props.editTask(this.props.id, task, date);
     this.setState({
       isEditing: false,
     });
-    e.preventDefault();
   };
 
   deleteTask() {
@@ -115,7 +115,7 @@ export default class TodoItem extends Component {
 
   /* Main Task */
   renderTask() {
-    const { task, date } = this.props;
+    const { task, date, isCompleted } = this.props;
     if (this.state.isEditing) {
       return (
         <td>
@@ -141,7 +141,7 @@ export default class TodoItem extends Component {
         </td>
       );
     }
-    if (this.props.isCompleted === true) {
+    if (isCompleted === true) {
       return (
         <div className="task-container">
           <li
