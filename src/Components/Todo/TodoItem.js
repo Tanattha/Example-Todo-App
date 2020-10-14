@@ -9,15 +9,24 @@ import {
   faWindowClose,
   faSave,
 } from "@fortawesome/free-solid-svg-icons";
-
+const initialState = {
+  task: "",
+  date: "",
+  isEditing: false,
+};
 export default class TodoItem extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isEditing: false,
-    };
+    this.state = { initialState };
   }
+
   /* Actions */
+  handleonChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+
   toggleTask() {
     this.props.toggleTask(this.props.id);
   }
@@ -32,17 +41,13 @@ export default class TodoItem extends Component {
     });
   }
 
-  editTask(e) {
-    this.props.editTask(
-      this.props.id,
-      this.refs.task.value,
-      this.refs.date.value
-    );
+  editTask = (e) => {
+    this.props.editTask(this.props.id, this.state.task, this.state.date);
     this.setState({
       isEditing: false,
     });
     e.preventDefault();
-  }
+  };
 
   deleteTask() {
     this.props.deleteTask(this.props.id);
@@ -53,7 +58,7 @@ export default class TodoItem extends Component {
     if (this.state.isEditing) {
       return (
         <td>
-          <span className="TodoBtn" onClick={(e) => this.editTask(e)}>
+          <span className="TodoBtn" onClick={this.editTask}>
             <FontAwesomeIcon icon={faSave} />
           </span>
           &nbsp;&nbsp;
@@ -114,7 +119,8 @@ export default class TodoItem extends Component {
         <td>
           <form onSubmit={(e) => this.editTask(e)}>
             <input
-              ref="date"
+              name="date"
+              onChange={this.handleonChange}
               defaultValue={date}
               className="form-input2"
               type="date"
@@ -122,9 +128,11 @@ export default class TodoItem extends Component {
             />
 
             <input
-              ref="task"
+              name="task"
+              onChange={this.handleonChange}
               defaultValue={task}
               className="form-input2"
+              type="text"
               autoFocus
             />
           </form>

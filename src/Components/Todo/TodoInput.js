@@ -1,28 +1,30 @@
 import React, { Component } from "react";
 import "./Todo.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus} from '@fortawesome/free-solid-svg-icons'
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+const initialState = {
+  task: "",
+  date: "",
+  category: "",
+};
 export default class TodoInput extends Component {
-  state = {
-    startDate: new Date(),
-  };
+  state = { initialState };
 
-  handleChange = (e) => {
+  handleonChange = (e) => {
     this.setState({
-      startDate: e.target.value,
+      [e.target.name]: e.target.value,
     });
   };
 
   onSubmit = (e) => {
     this.props.createTask(
-      this.refs.taskMessage.value,
-      this.refs.taskDuedate.value
+      this.state.task,
+      this.state.date,
+      this.state.category
     );
-    this.refs.taskMessage.value = "";
-    this.refs.taskDuedate.value = "";
+    this.setState(initialState);
     e.preventDefault();
-  }
+  };
 
   render() {
     return (
@@ -34,19 +36,16 @@ export default class TodoInput extends Component {
               name="date"
               type="date"
               placeholder="Due Date"
-              ref="taskDuedate"
-              onChange={this.handleChange}
+              onChange={this.handleonChange}
               required="true"
             />
-
             <p className="todo-text">Due Date</p>
-
             <input
+              className="form-input"
               name="task"
               type="text"
               placeholder="type here..."
-              ref="taskMessage"
-              className="form-input"
+              onChange={this.handleonChange}
               required="true"
             />
             &nbsp;&nbsp;
@@ -58,5 +57,4 @@ export default class TodoInput extends Component {
       </div>
     );
   }
-
 }

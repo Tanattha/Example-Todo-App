@@ -8,9 +8,9 @@ const todos = {
   lsKey: "todos",
 
   loadTask() {
-   this.items = JSON.parse(localStorage.getItem(this.lsKey)) || [];
+    this.items = JSON.parse(localStorage.getItem(this.lsKey)) || [];
   },
-  
+
   save() {
     localStorage.setItem(this.lsKey, JSON.stringify(this.items));
   },
@@ -47,7 +47,6 @@ const todos = {
 
 todos.loadTask();
 
-
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -55,7 +54,7 @@ export default class Home extends Component {
       todos: todos.items,
     };
   }
-/* States Change */
+  /* States Change */
   createTask(task, date) {
     todos.add({
       task,
@@ -85,13 +84,17 @@ export default class Home extends Component {
     this.setState({ todos: this.state.todos });
   }
 
-/* Main Page */
+  /* Main Page */
   render() {
     return (
       <header className="home">
         <div className="container header">
           <h1>Example Todo App</h1>
-          <TodoInput createTask={(task, date) => this.createTask(task, date)} />
+          <TodoInput
+            createTask={(task, date) =>
+              this.createTask(task, date)
+            }
+          />
 
           <TodoList
             todos={this.state.todos}
