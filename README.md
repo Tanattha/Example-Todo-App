@@ -8,16 +8,35 @@ This app was built with React and designed by HTML, CSS and bootstrapped. This's
 
 [CLICK HERE](https://example-todo-app.herokuapp.com/)
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+Fork and clone repos
 
-### `yarn start`
+    $ git clone https://github.com/Tanattha/Example-Todo-App.git
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Using two terminals, switch to each respective directory
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+    $ cd example-todo-aoo
+
+Install the packages
+
+    $ npm install
+
+Startup the server for frontend
+
+    $ npm start
+
+If you already run a Rails server, you may be prompted to use an alternate port - type Y or YES for continue.
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 
+## Special Thanks
+
+https://www.pexels.com/<br />
+https://favicon.io/<br />
+[Font: Fredoka One](https://fonts.google.com/specimen/Fredoka+One)
+
+and everything else from google!
