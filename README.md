@@ -26,8 +26,6 @@ Startup the server for frontend
 
     $ npm start
 
-If you already run a Rails server, you may be prompted to use an alternate port - type Y or YES for continue.
-
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
